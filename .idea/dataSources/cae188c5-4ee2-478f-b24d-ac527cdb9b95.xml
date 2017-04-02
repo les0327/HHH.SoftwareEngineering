@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="HHH@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="hhh">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <table id="7" parent="2" name="action"/>
+    <table id="8" parent="2" name="advert"/>
+    <table id="9" parent="2" name="user"/>
+    <column id="10" parent="7" name="ACTION_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="11" parent="7" name="DATE">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="12" parent="7" name="TYPE">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="13" parent="7" name="ACTOR">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="14" parent="7" name="ADVERT">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="15" parent="7" name="AUTHHOR">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="16" parent="7" name="FK74946A56231BA0B9">
+      <ColNames>AUTHHOR</ColNames>
+    </index>
+    <index id="17" parent="7" name="FK74946A564F2A550B">
+      <ColNames>ACTOR</ColNames>
+    </index>
+    <index id="18" parent="7" name="FK74946A56FB77F833">
+      <ColNames>ADVERT</ColNames>
+    </index>
+    <key id="19" parent="7" name="PRIMARY">
+      <ColNames>ACTION_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="20" parent="7" name="FK74946A564F2A550B">
+      <ColNames>ACTOR</ColNames>
+      <RefSchemaName>hhh</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>USER_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="21" parent="7" name="FK74946A56FB77F833">
+      <ColNames>ADVERT</ColNames>
+      <RefSchemaName>hhh</RefSchemaName>
+      <RefTableName>advert</RefTableName>
+      <RefColNames>ADVERT_ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="22" parent="7" name="FK74946A56231BA0B9">
+      <ColNames>AUTHHOR</ColNames>
+      <RefSchemaName>hhh</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>USER_ID</RefColNames>
+    </foreign-key>
+    <column id="23" parent="8" name="ADVERT_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="24" parent="8" name="CREATION">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="8" name="DESCRIPTION">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="26" parent="8" name="END">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="27" parent="8" name="NAME">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="8" name="SEAT_NUMBER">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="29" parent="8" name="TYPE">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="30" parent="8" name="PRIMARY">
+      <ColNames>ADVERT_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="31" parent="9" name="USER_ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="32" parent="9" name="EMAIL">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="33" parent="9" name="NAME">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="34" parent="9" name="PASSWORD">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="35" parent="9" name="PRIMARY">
+      <ColNames>USER_ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

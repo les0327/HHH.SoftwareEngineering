@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import view.Authorization;
 
-
 import java.io.IOException;
 
 /**
@@ -21,6 +20,7 @@ public class WindowController {
 
     private static Stage authorizationStage    = authorizationStage();
     private static Stage registrationStage     = registrationStage();
+    private static Stage advertWindowStage     = advertWindowStage();
 
 
     static void openAuthorization(){
@@ -31,12 +31,21 @@ public class WindowController {
         registrationStage.show();
     }
 
+    static void openAdvertWindow(){
+        advertWindowStage.show();
+    }
+
     static void hideAuthorization(){
         authorizationStage.hide();
+
     }
 
     static void hideRegistration(){
         registrationStage.hide();
+    }
+
+    static void hideAdvertWindow(){
+        advertWindowStage.hide();
     }
 
     private static Stage authorizationStage(){
@@ -61,9 +70,24 @@ public class WindowController {
             primaryStage.setScene(new Scene(root, 300, 275));
             primaryStage.setTitle("HHH");
 
-            primaryStage.setOnCloseRequest(event -> {
-                WindowController.openAuthorization();
-            });
+            primaryStage.setOnCloseRequest(event -> WindowController.openAuthorization());
+
+        } catch (IOException e){
+            System.out.println(e.getMessage());
+        }
+
+        return primaryStage;
+    }
+
+    private static Stage advertWindowStage(){
+        Stage primaryStage = new Stage();
+
+        try {
+            Parent root = new FXMLLoader().load(authorization.getClass().getResourceAsStream("/fxml/advert_window.fxml"));
+            primaryStage.setScene(new Scene(root));
+            primaryStage.setTitle("HHH");
+
+            primaryStage.setOnCloseRequest(event -> WindowController.openAuthorization());
 
         } catch (IOException e){
             System.out.println(e.getMessage());

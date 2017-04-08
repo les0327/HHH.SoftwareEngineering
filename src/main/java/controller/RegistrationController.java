@@ -2,10 +2,8 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import model.DAO.UserDAO;
 import model.entity.User;
 
 /**
@@ -23,8 +21,6 @@ public class RegistrationController {
     @FXML
     private PasswordField passwordField;
 
-    private UserDAO userDAO = new UserDAO();
-
     @FXML
     protected void handleSignInButton(ActionEvent actionEvent) {
         User user = new User();
@@ -32,9 +28,16 @@ public class RegistrationController {
         user.setEmail(loginField.getText().trim());
         user.setPassword(passwordField.getText().trim());
 
-        userDAO.save(user);
+        DataController.getUserDAO().save(user);
 
         WindowController.hideRegistration();
+        clean();
         WindowController.openAuthorization();
+    }
+
+    private void clean(){
+        nameField.setText(null);
+        loginField.setText(null);
+        passwordField.setText(null);
     }
 }

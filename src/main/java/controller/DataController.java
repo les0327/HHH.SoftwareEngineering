@@ -1,6 +1,5 @@
 package controller;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import model.DAO.ActionDAO;
@@ -18,22 +17,22 @@ import java.util.List;
  * @author Les.
  * @version 1.0.
  */
-class DataController {
+public class DataController {
 
-    private @Getter(AccessLevel.PACKAGE) static UserDAO userDAO     = new UserDAO();
-    private @Getter(AccessLevel.PACKAGE) static AdvertDAO advertDAO = new AdvertDAO();
-    private @Getter(AccessLevel.PACKAGE) static ActionDAO actionDAO = new ActionDAO();
+    private @Getter static UserDAO   userDAO   = new UserDAO();
+    private @Getter static AdvertDAO advertDAO = new AdvertDAO();
+    private @Getter static ActionDAO actionDAO = new ActionDAO();
 
-    private @Getter(AccessLevel.PACKAGE) @Setter(AccessLevel.PACKAGE) static User currentUser;
-    private @Getter(AccessLevel.PACKAGE) @Setter(AccessLevel.PACKAGE) static List<Advert> adverts;
-    private @Getter(AccessLevel.PACKAGE) @Setter(AccessLevel.PACKAGE) static List<Action> userActions;
+    private @Getter @Setter static User currentUser;
+    private @Getter @Setter static List<Advert> adverts;
+    private @Getter @Setter static List<Action> userActions;
 
 
-    static void updateAdverts(){
-        adverts = advertDAO.getAll(Advert.class);
+    public static void updateAdverts(){
+        adverts = advertDAO.getAllValid();
     }
 
-    static void updateUserActions(){
-
+    public static void updateUserActions(){
+        userActions = actionDAO.getUserActions(currentUser);
     }
 }

@@ -1,5 +1,7 @@
-package controller;
+package controller.fxml;
 
+import controller.DataController;
+import controller.WindowController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
@@ -33,7 +35,7 @@ public class AuthorizationController {
             if (user.getPassword().equals(passwordField.getText())) {
                 WindowController.hideAuthorization();
                 clean();
-                WindowController.openAdvertWindow();
+                WindowController.openMainWindow();
             } else
                 actionTarget.setText("Wrong password");
         else

@@ -12,8 +12,8 @@ public enum ActionType {
     DELETE_ADVERT(2, "Delete"),
     CONFIRM_ACTION(3, "Confirm");
 
-    int id;
-    String description;
+    private int id;
+    private String description;
 
     ActionType(int id, String description){
         this.id = id;

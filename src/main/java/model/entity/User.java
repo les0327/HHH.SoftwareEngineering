@@ -15,7 +15,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"userID"})
-@ToString
+@ToString(of = {"name", "email"}, includeFieldNames = false)
 public class User implements Serializable {
 
     @Id

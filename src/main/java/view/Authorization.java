@@ -5,7 +5,6 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 
-
 /**
  * Created on 27.03.2017.
  *

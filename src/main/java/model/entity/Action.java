@@ -16,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"actionID"})
-@ToString
+@ToString(of = {"type", "date", "author", "advert"}, includeFieldNames = false)
 public class Action implements Serializable {
 
     @Id

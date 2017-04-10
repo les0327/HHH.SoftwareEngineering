@@ -1,9 +1,8 @@
 package model.DAO;
 
-import model.entity.Advert;
+import model.persistence.HibernateUtility;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import model.persistence.HibernateUtility;
 
 import java.io.Serializable;
 import java.util.List;
@@ -28,7 +27,7 @@ interface GenericDAO<E, K extends Serializable> {
             adverts = (List<E>)session.createCriteria(eClass).list();
             session.close();
         } catch (Exception e){
-            throw e;
+            e.printStackTrace();
         }   finally {
             if (session != null && session.isOpen())
                 session.close();
@@ -49,7 +48,7 @@ interface GenericDAO<E, K extends Serializable> {
             entity = (E) session.load(eClass, key);
             session.close();
         } catch (Exception e) {
-            throw e;
+            e.printStackTrace();
         } finally {
             if (session != null && session.isOpen())
                 session.close();
@@ -90,12 +89,12 @@ interface GenericDAO<E, K extends Serializable> {
             t.commit();
             session.close();
         } catch (Exception e){
-            throw e;
+            e.printStackTrace();
         } finally {
             if (session != null && session.isOpen())
                 session.close();
         }
-    };
+    }
 
     /**
      * Delete model.entity from data base
@@ -110,10 +109,10 @@ interface GenericDAO<E, K extends Serializable> {
             t.commit();
             session.close();
         } catch (Exception e){
-            throw e;
+            e.printStackTrace();
         } finally {
             if (session != null && session.isOpen())
                 session.close();
         }
-    };
+    }
 }

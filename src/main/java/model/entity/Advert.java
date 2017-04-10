@@ -16,6 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"advertID"})
+@ToString( of = {"name", "description", "creation"}, includeFieldNames = false)
 public class Advert implements Serializable {
 
     @Id
@@ -42,5 +43,8 @@ public class Advert implements Serializable {
 
     @Column(name = "SEAT_NUMBER")
     private @Getter @Setter int seatNumber;
+
+    @Column(name = "VALID")
+    private @Getter @Setter boolean valid;
 }
 
